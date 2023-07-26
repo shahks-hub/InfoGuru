@@ -2,6 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+## Installation
+You must setup postgres to work with this codebase
+
+https://www.postgresql.org/download/
+
+### Create a database
+Go to your terminal and run these commands. Make sure the password you set is called `secure`
+
+```bash
+sudo -u postgres createuser root -P
+sudo -u postgres createdb infoguru
+```
+
 First, run the development server:
 
 ```bash
