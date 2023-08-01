@@ -2,7 +2,7 @@
 
 .main {
   background-color: #f2f2f2;
-  background-image: url('home.jpg'); /* Adjust the URL to the path of your image file */
+  background-image: url('homepage.jpg'); /* Adjust the URL to the path of your image file */
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -16,30 +16,39 @@
 
 
 
-
 .description {
-  text-align: center;
+  text-align: left; /* Align the text to the left */
   margin-bottom: 20px;
+  max-width: 400px; /* Add a maximum width to the description to control its width */
+  margin-left: 10px; /* Move the description to the left side of the page */
+  margin-right: auto;
+
 }
 
 /* The following classes are used as local selectors with the element selector */
 
 .title {
-  color: #000000;
+  color: #ffffff;
   position: absolute;
   top: 0px; 
   left:0px; 
   padding: 20px; 
+  font-size: 50px;
+  
 
 }
 
 .subtitle {
-  color: #060505;
+  color: #ffffff;
+  font-size: 30px;
 }
 
 .paragraph {
-  color: #060505;
+  color: #ffffff;
   padding: 20px;
+  margin-left: 10px;
+  font-size: 20px;
+  
 }
 
 .btn {
@@ -49,17 +58,34 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  margin-left: 100px;
+  font-size: 15px;
 }
 
 /* Add the styles for login and signup */
 .signup {
   position: absolute;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
   top: 20px;
   right: 20px;
+  font-size: large;
+  padding: 8px 15px;
+  cursor: pointer;
+
+
+  
 }
 
 .login {
   position: absolute;
   top: 20px;
-  right: 80px; /* Add some spacing between signup and login */
+  right: 120px; /* Add some spacing between signup and login */
+  font-size: large;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
 }
