@@ -4,11 +4,11 @@ import styles from './page.module.css'
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.label}>
-        <h1 className={styles.textwrapper}>🧘‍♂️ InfoGuru</h1>
+      <div>
+        <h1 className={styles.title}>🧘‍♂️ InfoGuru </h1>
+          <h1 className={styles.signup_wrapper}>Login</h1>
       </div>
       <div className={styles.container}>
-        <div className={styles.rectangle}>
         <div className={styles.signup_title}>
         <h1>Sign Up</h1>
         </div>
@@ -31,7 +31,6 @@ export default function Home() {
         <div>
             <button className={styles.signup_button}>Sign Up</button>
         </div>
-      </div>
       </div>
     </main>
   )

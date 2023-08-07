@@ -1,12 +1,10 @@
 .main {
   display: flex;
-  background-color: #F5F5F5;
+  background-color: #3AA1FF;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 9rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
   padding-top: 1rem;
+  padding-bottom: 10rem;
 }
 
 .description {
@@ -20,23 +18,34 @@
   font-family: var(--font-mono);
 }
 
-.label {
-  border: 0px none;
-  height: 31px;
-  width: 136px;
-}
 
-.textwrapper {
+.title {
   color: #000000;
+  background-color: azure;
   font-family: "SF Pro-Bold", Helvetica;
   font-size: 26px;
   font-weight: 700;
   left: 0;
+  width: 10000px;
   letter-spacing: 0;
   line-height: normal;
   position: fixed;
   top: 0;
+  height: 65px;
   white-space: nowrap;
+  padding: 1rem;
+  
+}
+
+.signup_wrapper {
+color: black;
+  font-family: "SF Pro-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  padding-left: 90rem;
+  text-align: left;
+  top: 0;
+  margin-top: 0;
 }
 
 .input_title {
