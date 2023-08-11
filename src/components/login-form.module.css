@@ -1,0 +1,37 @@
+.main{
+  background-image:linear-gradient(rgb(65, 65, 221),white);
+  
+  
+}
+
+.logoimage {
+  width: 500px;
+
+}
+
+.email{
+  font-size: 1.2rem;
+}
+
+.password{
+  font-size: 1.2rem;
+}
+
+.Signinbtn{
+  font-size: 1rem;
+}
+
+.textmuted{
+  font-size: 1rem;
+  padding-left: 2%;
+  
+}
+
+.noaccount{
+  font-size: 1.2rem;
+}
+
+.signupbtn{
+  font-size: 1rem;
+}
+
