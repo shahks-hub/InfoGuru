@@ -35,3 +35,18 @@
   font-size: 1rem;
 }
 
+.backbtn{
+ position: fixed;
+ top:20px;
+ right:20px;
+ font-size: 15px;
+ transition-duration: 0.4s;
+ background-color: #ef9dd9;
+}
+
+.backbtn:hover {
+  background-color: #8e1dd9; /* Green */
+  color:rgb(243, 241, 245);
+  
+}
+

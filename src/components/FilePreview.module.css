@@ -1,0 +1,17 @@
+/* FilePreview container */
+.fileList {
+    margin-top: 20px;
+  }
+  
+  /* Individual file container */
+  .fileContainer {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  /* File name */
+  .fileName {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
