@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./FilePreview.module.css";
-import { PrismaClient } from "@prisma/client";
 
 interface File {
   name: string;
@@ -13,10 +12,9 @@ interface FileData {
 
 interface FilePreviewProps {
   fileData: FileData;
-  prisma: PrismaClient;
 }
 
-const FilePreview: React.FC<FilePreviewProps> = ({ fileData, prisma }) => {
+const FilePreview: React.FC<FilePreviewProps> = ({ fileData }) => {
   const [fileContent, setFileContent] = useState<{ [key: string]: string }>(
     {}
   );
@@ -24,24 +22,27 @@ const FilePreview: React.FC<FilePreviewProps> = ({ fileData, prisma }) => {
   useEffect(() => {
     const fetchFileContent = async () => {
       try {
-        const files = await prisma.file.findMany();
-        const contentMap: { [key: string]: string } = {};
+        const response = await fetch("/api/getFilecontent", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ fileNames: fileData.fileList.map((f) => f.name) }),
+        });
 
-        await Promise.all(
-          files.map(async (file) => {
-            const content = file.content;
-            contentMap[file.filename] = content;
-          })
-        );
-
-        setFileContent(contentMap);
+        if (response.ok) {
+          const contentMap: { [key: string]: string } = await response.json();
+          setFileContent(contentMap);
+        } else {
+          console.error("Error fetching file content:", response.statusText);
+        }
       } catch (error) {
         console.error("Error fetching file content:", error);
       }
     };
 
     fetchFileContent();
-  }, []);
+  }, [fileData]);
 
   return (
     <div className={styles.fileList}>

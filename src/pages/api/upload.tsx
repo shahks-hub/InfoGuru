@@ -11,7 +11,7 @@ export default async function handler(
     res.status(404).send("Not Found");
     return;
   }
-
+//make post request and have this in the body and pass it to dropzone
   const { filename, content, ownerId } = req.body;
 
   try {

@@ -1,24 +1,24 @@
 import React from "react";
-import Image from "next/image";
 import FilePreview from "./FilePreview";
 import styles from "./DropZone.module.css";
-import { PrismaClient } from "@prisma/client";
+import UploadedFile from "../pages/uploadpage";
 
 interface DropZoneProps {
   data: {
     inDropZone: boolean;
-    fileList: File[];
+    fileList: UploadedFile[];
   };
   dispatch: React.Dispatch<any>;
   userId: string;
-  prisma: PrismaClient;
+ fileContent: {[key:string]:string};
+  
 }
 
 const DropZone: React.FC<DropZoneProps> = ({
   data,
   dispatch,
   userId,
-  prisma,
+  
 }) => {
   const handleDragEnter = (e: React.DragEvent) => {
     e.preventDefault();
@@ -51,32 +51,38 @@ const DropZone: React.FC<DropZoneProps> = ({
         (file) => !existingFiles.includes(file.name)
       );
 
+      const formData = new FormData();
+      newFiles.forEach((file) => {
+        formData.append("files", file);
+        formData.append("content",file);
+      });
+
       try {
-        await Promise.all(
-          newFiles.map(async (file) => {
-            const content = await file.text();
-            await prisma.file.create({
-              data: {
-                filename: file.name,
-                content,
-                ownerId: userId,
-              },
+        // Make a POST request to the API endpoint
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
 
+        if (response.ok) {
+          const { uploadedFiles } = await response.json();
 
+          dispatch({
+            type: "ADD_FILE_TO_LIST",
+            files: uploadedFiles.map((file: any) => ({
+              name: file.filename,
+            })),
+          });
 
-
-            });
-          })
-        );
-
-        dispatch({ type: "ADD_FILE_TO_LIST", files: newFiles });
-        dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: false });
+          dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: false });
+        } else {
+          console.error("Error uploading files:", response.statusText);
+        }
       } catch (error) {
         console.error("Error uploading files:", error);
       }
     }
   };
-
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
 
@@ -111,7 +117,7 @@ const DropZone: React.FC<DropZoneProps> = ({
         <label htmlFor="fileSelect">You can select multiple Files</label>
         <h3 className={styles.uploadMessage}>or drag &amp; drop your files here</h3>
       </div>
-      <FilePreview fileData={data} prisma={prisma} />
+      <FilePreview fileData={data}/>
     </>
   );
 };
