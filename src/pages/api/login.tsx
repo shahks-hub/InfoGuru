@@ -1,9 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
+import {withIronSessionApiRoute} from "iron-session/next";
+import { cookieInfo } from "@/constants";
+
 
 const prisma = new PrismaClient();
 
-export default async function handler(
+export default withIronSessionApiRoute(
+
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -31,6 +36,15 @@ export default async function handler(
     res.status(400).send("Incorrect password.");
     return;
   }
+req.session.user = {
+name : user.name, 
+id: user.id,
+
+}
+
+
+await req.session.save();
+
 
   res.status(200).send("Login successful.");
-}
+}, cookieInfo );

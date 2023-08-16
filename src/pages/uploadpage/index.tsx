@@ -1,14 +1,15 @@
+// uploadpage/index.tsx
+
 import React, { useReducer, useEffect, useState } from "react";
-import Head from "next/head";
-import DropZone from "../../components/DropZone";
+import DropZone from "../../components/DropZone"; 
 import styles from "./Home.module.css";
 
 
 interface UploadedFile {
   name: string;
-  // Add any other properties of the File object
+  content: string;
+ 
 }
-
 
 interface StateType {
   inDropZone: boolean;
@@ -17,7 +18,7 @@ interface StateType {
 
 type ActionType =
   | { type: "SET_IN_DROP_ZONE"; inDropZone: boolean }
-  | { type: "ADD_FILE_TO_LIST"; files: File[] };
+  | { type: "ADD_FILE_TO_LIST"; files: UploadedFile[] };
 
 const reducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
@@ -31,12 +32,14 @@ const reducer = (state: StateType, action: ActionType): StateType => {
 };
 
 const UploadedFile: React.FC = () => {
+  const handleFileUpload = (filename:string) => {
+    console.log(filename);
+  }
+
   const [data, dispatch] = useReducer(reducer, {
     inDropZone: false,
-    fileList: [] as File[],
+    fileList: [] as UploadedFile[],
   });
-
-  const userId = "user_id_here"; // Replace with the user's ID
 
   const [fileContent, setFileContent] = useState<{ [key: string]: string }>({});
 
@@ -69,25 +72,16 @@ const UploadedFile: React.FC = () => {
   }, [data.fileList]);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Drag And Drop File Upload</title>
-        <meta
-          name="description"
-          content="Nextjs drag and drop file upload"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    
+      <div className={styles.container}>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Drag And Drop File Upload</h1>
-        <DropZone data={data} dispatch={dispatch} userId={userId} fileContent={fileContent} />
-      </main>
+        <main className={styles.main}>
+          <h1 className={styles.title}>Drag And Drop File Upload</h1>
+          <DropZone data={data} dispatch={dispatch} fileContent={fileContent} onFileUpload={handleFileUpload} />
+        </main>
 
-      <footer className={styles.footer}>
-        <div>{new Date().getFullYear()}</div>
-      </footer>
-    </div>
+      </div>
+    
   );
 };
 

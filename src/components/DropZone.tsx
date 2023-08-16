@@ -1,25 +1,22 @@
+// components/DropZone.tsx
 import React from "react";
 import FilePreview from "./FilePreview";
 import styles from "./DropZone.module.css";
-import UploadedFile from "../pages/uploadpage";
+import UploadedFile from "@/pages/uploadpage";
+
 
 interface DropZoneProps {
   data: {
     inDropZone: boolean;
     fileList: UploadedFile[];
   };
+  onFileUpload: (filename: string) => void
+
   dispatch: React.Dispatch<any>;
-  userId: string;
- fileContent: {[key:string]:string};
-  
+  fileContent: { [key: string]: string };
 }
 
-const DropZone: React.FC<DropZoneProps> = ({
-  data,
-  dispatch,
-  userId,
-  
-}) => {
+const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => {
   const handleDragEnter = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -50,39 +47,46 @@ const DropZone: React.FC<DropZoneProps> = ({
       const newFiles = Array.from(files).filter(
         (file) => !existingFiles.includes(file.name)
       );
-
-      const formData = new FormData();
-      newFiles.forEach((file) => {
-        formData.append("files", file);
-        formData.append("content",file);
-      });
-
-      try {
-        // Make a POST request to the API endpoint
-        const response = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (response.ok) {
-          const { uploadedFiles } = await response.json();
-
-          dispatch({
-            type: "ADD_FILE_TO_LIST",
-            files: uploadedFiles.map((file: any) => ({
-              name: file.filename,
-            })),
-          });
-
-          dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: false });
-        } else {
-          console.error("Error uploading files:", response.statusText);
+    
+       newFiles.forEach(async(file) => {
+        
+        const reader = new FileReader();
+        reader.addEventListener(
+          "load", //not implemented yet
+          async() => {
+            
+            const response = await fetch("/api/upload", {
+              method: "POST",
+              body: JSON.stringify({
+              filename: file.name, 
+              content: reader.result,
+    
+              })})
+              if (response.ok) {
+                const { filename } = await response.json();
+                onFileUpload(filename);
+      
+                // dispatch({
+                //   type: "ADD_FILE_TO_LIST",
+                //   files: uploadedFiles.map((file: any) => ({
+                //     name: file.filename,
+                //     content: fileContent,
+                //   })),
+                // });
+          };
+         
+         
+  
         }
-      } catch (error) {
-        console.error("Error uploading files:", error);
-      }
+        );
+        console.log(reader.readAsDataURL(file));
+    
+    });
+
+     
     }
   };
+
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
 
@@ -117,7 +121,7 @@ const DropZone: React.FC<DropZoneProps> = ({
         <label htmlFor="fileSelect">You can select multiple Files</label>
         <h3 className={styles.uploadMessage}>or drag &amp; drop your files here</h3>
       </div>
-      <FilePreview fileData={data}/>
+      <FilePreview fileData={data} />
     </>
   );
 };

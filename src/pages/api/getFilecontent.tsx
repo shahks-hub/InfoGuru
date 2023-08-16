@@ -14,11 +14,12 @@ export default async function handler(
     return;
   }
 
-  const { fileNames } = req.body;
+  const { fileNames,ownerId } = req.body;
 
   try {
     const files = await prisma.file.findMany({
       where: {
+        ownerId,
         filename: { in: fileNames },
       },
     });
