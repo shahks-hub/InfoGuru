@@ -3,7 +3,7 @@
 import React, { useReducer, useEffect, useState } from "react";
 import DropZone from "../../components/DropZone"; 
 import styles from "./Home.module.css";
-
+import Chatbot from 'react-chatbot-kit';
 
 interface UploadedFile {
   name: string;
@@ -79,7 +79,6 @@ const UploadedFile: React.FC = () => {
           <h1 className={styles.title}>Drag And Drop File Upload</h1>
           <DropZone data={data} dispatch={dispatch} fileContent={fileContent} onFileUpload={handleFileUpload} />
         </main>
-
       </div>
     
   );

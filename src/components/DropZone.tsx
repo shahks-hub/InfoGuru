@@ -1,6 +1,5 @@
 // components/DropZone.tsx
 import React from "react";
-import FilePreview from "./FilePreview";
 import styles from "./DropZone.module.css";
 import UploadedFile from "@/pages/uploadpage";
 
@@ -52,7 +51,7 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
         
         const reader = new FileReader();
         reader.addEventListener(
-          "load", //not implemented yet
+          "load",
           async() => {
             
             const response = await fetch("/api/upload", {
@@ -66,13 +65,7 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
                 const { filename } = await response.json();
                 onFileUpload(filename);
       
-                // dispatch({
-                //   type: "ADD_FILE_TO_LIST",
-                //   files: uploadedFiles.map((file: any) => ({
-                //     name: file.filename,
-                //     content: fileContent,
-                //   })),
-                // });
+               
           };
          
          
@@ -121,7 +114,7 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
         <label htmlFor="fileSelect">You can select multiple Files</label>
         <h3 className={styles.uploadMessage}>or drag &amp; drop your files here</h3>
       </div>
-      <FilePreview fileData={data} />
+      
     </>
   );
 };
