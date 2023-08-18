@@ -1,18 +1,14 @@
-// components/DropZone.tsx
+
+
 import React from "react";
 import styles from "./DropZone.module.css";
-import UploadedFile from "@/pages/uploadpage";
-
 
 interface DropZoneProps {
   data: {
     inDropZone: boolean;
-    fileList: UploadedFile[];
   };
-  onFileUpload: (filename: string) => void
-
   dispatch: React.Dispatch<any>;
-  fileContent: { [key: string]: string };
+  onFileUpload: (filename: string) => void;
 }
 
 const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => {
@@ -42,41 +38,25 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
     const files = e.dataTransfer.files;
 
     if (files && files.length > 0) {
-      const existingFiles = data.fileList.map((f) => f.name);
-      const newFiles = Array.from(files).filter(
-        (file) => !existingFiles.includes(file.name)
-      );
-    
-       newFiles.forEach(async(file) => {
-        
-        const reader = new FileReader();
-        reader.addEventListener(
-          "load",
-          async() => {
-            
-            const response = await fetch("/api/upload", {
-              method: "POST",
-              body: JSON.stringify({
-              filename: file.name, 
-              content: reader.result,
-    
-              })})
-              if (response.ok) {
-                const { filename } = await response.json();
-                onFileUpload(filename);
+      const file = files[0]; // Assuming only one file is dropped
       
-               
-          };
-         
-         
-  
-        }
-        );
-        console.log(reader.readAsDataURL(file));
-    
-    });
+      const reader = new FileReader();
+      reader.addEventListener("load", async () => {
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: JSON.stringify({
+            filename: file.name,
+            content: reader.result,
+          }),
+        });
 
-     
+        if (response.ok) {
+          const { filename } = await response.json();
+          onFileUpload(filename);
+        }
+      });
+
+      reader.readAsDataURL(file);
     }
   };
 
@@ -84,38 +64,31 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
     const files = e.target.files;
 
     if (files && files.length > 0) {
-      const existingFiles = data.fileList.map((f) => f.name);
-      const newFiles = Array.from(files).filter(
-        (file) => !existingFiles.includes(file.name)
-      );
+      const file = files[0]; // Assuming only one file is selected
 
-      dispatch({ type: "ADD_FILE_TO_LIST", files: newFiles });
+      dispatch({ type: "ADD_FILE_TO_LIST", files: [{ name: file.name }] });
     }
   };
 
   return (
-    <>
-      <div
-        className={`${styles.dropzone} ${
-          data.inDropZone ? styles.active : ""
-        }`}
-        onDragEnter={handleDragEnter}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-      >
-        <input
-          id="fileSelect"
-          type="file"
-          multiple
-          className={styles.files}
-          onChange={handleFileSelect}
-        />
-        <label htmlFor="fileSelect">You can select multiple Files</label>
-        <h3 className={styles.uploadMessage}>or drag &amp; drop your files here</h3>
-      </div>
-      
-    </>
+    <div
+      className={`${styles.dropzone} ${
+        data.inDropZone ? styles.active : ""
+      }`}
+      onDragEnter={handleDragEnter}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
+      <input
+        id="fileSelect"
+        type="file"
+        className={styles.files}
+        onChange={handleFileSelect}
+      />
+      <label htmlFor="fileSelect">Select a File</label>
+      <h3 className={styles.uploadMessage}>or drag &amp; drop your file here</h3>
+    </div>
   );
 };
 
