@@ -26,11 +26,7 @@ async function handler(
    
 
     await prisma.file.create({
-      // data: {
-      //   filename,
-      //   content,
-      //   ownerId: user.id,
-      // },
+      
        data: {
         filename,
         content,

@@ -4,9 +4,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px dashed #ccc;
+    border: 2px dashed #2b20c8;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 60px;
     padding: 20px;
     cursor: pointer;
+    background-color: aliceblue;
   }
   
   /* Files Input */
@@ -21,22 +25,55 @@
     color: #333;
   }
   
-  /* File Preview List */
-  .fileList {
-    margin-top: 20px;
-  }
-  
-  .fileContainer {
-    border: 1px solid #ccc;
-    padding: 10px;
-    max-height: 150px;
-    overflow-y: auto;
-  }
-  
-  .fileName {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
+
+/* Upload Success Message */
+.uploadSuccess {
+  margin-top: 10px;
+  font-size: 16px;
+  color: green;
+}
   
  
+
+
+/* Circular Progress Bar */
+.uploadProgress {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 4px solid #ccc;
+  border-top: 4px solid #007bff; /* Blue color for progress */
+  animation: spin 2s linear infinite;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  transform-origin: center center;
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logoutbtn{
+  position: fixed;
+  top:20px;
+  right:20px;
+  font-size: 15px;
+  transition-duration: 0.4s;
+  background-color: #ef9dd9;
+  cursor:pointer;
+  font-size: 20px;
+}
+
+.logoutbtn:hover {
+  background-color: #8e1dd9; /* Green */
+  color:rgb(243, 241, 245);
   
+}
