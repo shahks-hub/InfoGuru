@@ -103,12 +103,15 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
     )}
 
 
-      {/* Upload Success Message */}
-      {data.uploadSuccess && (
-        <div className={styles.uploadSuccess}>
-          File uploaded successfully: {data.uploadSuccess.filename}
-        </div>
-      )}
+{data.uploadSuccess && (
+  <div className={styles.uploadSuccess}>
+    File uploaded successfully: {data.uploadSuccess.filename}
+    
+    <label>Enter your question here:</label>
+    <input type="text" placeholder="what info does the file have?" />
+  </div>
+)}
+
 
     <Link href= "/homepage">
     <button className={styles.logoutbtn}>Logout</button>
