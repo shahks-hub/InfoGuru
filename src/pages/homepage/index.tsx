@@ -1,4 +1,4 @@
-import styles from '../pages/homepage/page.module.css';
+import styles from './page.module.css';
 import Link from 'next/link';
 import React from 'react';
 
