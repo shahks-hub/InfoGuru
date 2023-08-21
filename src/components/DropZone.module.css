@@ -45,6 +45,7 @@ margin-bottom: 10px;
 width: 100%; /* Set the width to 100% to make it span the width of its container */
 padding: 8px; /* Add some padding for better visual appearance */
 box-sizing: border-box; /* Include padding and border in the element's total width */
+margin-bottom: 10px;
 }
 
 
@@ -89,4 +90,22 @@ font-size: 20px;
 background-color: #8e1dd9; /* Green */
 color:rgb(243, 241, 245);
 
+}
+
+.btnsend{
+  background-color: #bb88dc;
+  cursor: pointer;
+}
+
+.btnsend:hover{
+  background-color: #ef9dd9;
+}
+
+.apiResponse{
+  font-size: 20px;
+  font-style: italic;
+  color: #d91d9d;
+  padding: 15px;
+  
+  
 }

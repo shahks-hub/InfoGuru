@@ -1,7 +1,8 @@
 // DropZone.tsx
-import React from "react";
+import React, { useState } from "react";
 import styles from "./DropZone.module.css";
 import Link from 'next/link';
+import { Configuration, OpenAIApi } from "openai";
 
 interface DropZoneProps {
   data: {
@@ -14,6 +15,10 @@ interface DropZoneProps {
 }
 
 const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => {
+  const [userQuestion, setUserQuestion] = useState("");
+  const [apiResponse, setApiResponse] = useState<string>("");
+  
+  
   const handleDragEnter = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -31,6 +36,33 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
     e.stopPropagation();
     e.dataTransfer.dropEffect = "copy";
     dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: true });
+  };
+
+
+  
+ 
+
+  const handleSendQuestion = async () => {
+    if (userQuestion) {
+      const apiKey = ""; //add your own apikey here
+      const configuration = new Configuration({
+        apiKey: apiKey,
+    });
+    const openai = new OpenAIApi(configuration);
+    const response = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages:[ {
+       role:'user',
+       content: userQuestion }]
+});
+  console.log(response);
+if(response ){
+  const responseText = response.data.choices[0].message?.content;
+  setApiResponse(responseText || "");
+
+}
+      
+    }
   };
 
   const handleDrop = async (e: React.DragEvent) => {
@@ -73,15 +105,7 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
     }
   };
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-
-    if (files && files.length > 0) {
-      const file = files[0]; // Assuming only one file is selected
-
-      // Dispatch relevant action here, if needed
-    }
-  };
+ 
 
   return (
     <div
@@ -108,8 +132,18 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
     File uploaded successfully: {data.uploadSuccess.filename}
     
     <label>Enter your question here:</label>
-    <input type="text" placeholder="what info does the file have?" />
+    <input 
+    type="text"
+     placeholder="what info does the file have?"
+     value={userQuestion || ""}
+     onChange={(e) => setUserQuestion(e.target.value)}
+    
+    />
+    <button className={styles.btnsend} onClick={handleSendQuestion} >send question</button>
+    {apiResponse && <div className={styles.apiResponse}>{apiResponse}</div>} 
+   
   </div>
+ 
 )}
 
 
