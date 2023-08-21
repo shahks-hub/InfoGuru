@@ -21,6 +21,7 @@
     "mdb-react-ui-kit": "^6.2.0",
     "next": "13.4.10",
     "nodemailer": "^6.9.4",
+    "openai": "^3.3.0",
     "react": "18.2.0",
     "react-chatbot-kit": "^2.1.2",
     "react-dom": "18.2.0"
