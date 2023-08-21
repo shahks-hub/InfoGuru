@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import styles from "./DropZone.module.css";
 import Link from 'next/link';
-import { Configuration, OpenAIApi } from "openai";
+
+
+
 
 interface DropZoneProps {
   data: {
@@ -17,6 +19,8 @@ interface DropZoneProps {
 const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => {
   const [userQuestion, setUserQuestion] = useState("");
   const [apiResponse, setApiResponse] = useState<string>("");
+  const [fileId, setFileId] = useState<string | null>(null);
+
   
   
   const handleDragEnter = (e: React.DragEvent) => {
@@ -41,29 +45,30 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
 
   
  
-
   const handleSendQuestion = async () => {
-    if (userQuestion) {
-      const apiKey = ""; //add your own apikey here
-      const configuration = new Configuration({
-        apiKey: apiKey,
-    });
-    const openai = new OpenAIApi(configuration);
-    const response = await openai.createChatCompletion({
-      model: 'gpt-3.5-turbo',
-      messages:[ {
-       role:'user',
-       content: userQuestion }]
-});
-  console.log(response);
-if(response ){
-  const responseText = response.data.choices[0].message?.content;
-  setApiResponse(responseText || "");
+    console.log("send button clicked")
+    console.log("User Question:", userQuestion);
+console.log("File ID:", fileId);
 
-}
-      
+    if (userQuestion && fileId) {
+      const response = await fetch("api/ask", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userQuestion,
+          fileId
+        }),
+      });
+  console.log(response);
+      if (response.ok) {
+        const responseText = await response.text();
+        setApiResponse(responseText);
+      }
     }
   };
+  
 
   const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault();
@@ -83,13 +88,17 @@ if(response ){
             content: reader.result,
           }),
         });
-
+       console.log(response);
         if (response.ok) {
-          const { filename } = await response.json();
+          const responseData  = await response.json();
+          
+         const { fileId: uploadedFileId, filename } = responseData;
+
+          setFileId(uploadedFileId);
           onFileUpload(filename);
 
           // Update the upload success and progress state
-          dispatch({ type: "SET_UPLOAD_SUCCESS", success: { filename } });
+          dispatch({ type: "SET_UPLOAD_SUCCESS", success: {filename } });
           dispatch({ type: "SET_UPLOAD_PROGRESS", progress: 100 });
         }
       });

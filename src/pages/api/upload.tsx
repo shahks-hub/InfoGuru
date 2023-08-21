@@ -20,27 +20,31 @@ async function handler(
 
   const { filename, content } = JSON.parse(req.body);
   console.log(filename);
-  
-  
   try {
-   
-
-    await prisma.file.create({
-      
-       data: {
+    const createdFile = await prisma.file.create({
+      data: {
         filename,
         content,
         ownerId: req.session.user.id,
       },
     });
-
-
   
-    res.status(200).send({ message: "File uploaded successfully", filename })
+    // Check if createdFile.id exists and send it in the response
+    if (createdFile && createdFile.id) {
+      res.status(200).send({ 
+        message: "File uploaded successfully", 
+        filename, 
+        fileId: createdFile.id 
+      });
+    } else {
+      throw new Error("File ID not generated");
+    }
   } catch (error) {
     console.error("Error uploading file:", error);
     res.status(500).send("Error uploading file.");
   }
+  
+  
 }
 
 
