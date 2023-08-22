@@ -89,10 +89,23 @@ color: black;
 .signup_button {
   height: 35px;
   width: 50%;
-  background-color: #3AA1FF;
+  background-color: #513aff;
   color: white;
   cursor: pointer;
   border-style: hidden;
   margin-left: 6rem;
   margin-top: 10px;
+}
+
+.login {
+  position: absolute;
+  top: 20px;
+  right: 10px; /* Add some spacing between signup and login */
+  font-size: large;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  color:#FFFFFF
 }

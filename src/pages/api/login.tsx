@@ -19,7 +19,7 @@ async function handler(
 
   const { email, password } = req.body;
 
-  console.log(req.body);
+  
 
   const user = await prisma.user.findUnique({
     where: {

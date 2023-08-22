@@ -41,6 +41,7 @@ const UploadPage: React.FC = () => {
   return (
     
        <div className={styles.container}>
+        <title>DashBoard</title>
       <main className={styles.main}>
         <h1 className={styles.title}>Drag And Drop File Upload</h1>
         <DropZone data={data} dispatch={dispatch} onFileUpload={handleFileUpload} />

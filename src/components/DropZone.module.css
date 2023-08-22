@@ -95,6 +95,8 @@ color:rgb(243, 241, 245);
 .btnsend{
   background-color: #bb88dc;
   cursor: pointer;
+  margin-bottom: 10px;
+  
 }
 
 .btnsend:hover{
@@ -108,4 +110,10 @@ color:rgb(243, 241, 245);
   padding: 15px;
   
   
+}
+
+.refreshButton{
+ 
+  background-color:dodgerblue;
+  color: rgb(252, 252, 252);
 }
