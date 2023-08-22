@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { Configuration, OpenAIApi } from "openai";
 
 const config = new Configuration({
-  apiKey: "", //ADD YOUR API KEY HERE
+  apiKey: "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", //ADD YOUR API KEY HERE
 });
 
 const openai = new OpenAIApi(config);
@@ -46,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     ]
   });
-  console.log(response);
+  
 
   if (response) {
     const responseText = response.data.choices[0].message?.content;

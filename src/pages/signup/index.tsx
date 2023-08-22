@@ -1,7 +1,8 @@
 "use client"
-import Image from 'next/image'
+import Link from 'next/link';
 import styles from './page.module.css'
 import { FormEvent } from 'react'
+
 
 export default function Home() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -20,7 +21,7 @@ export default function Home() {
       'Content-Type': 'application/json'
     }})
 
-    console.log(response.text)
+    
 
   }
   return (
@@ -49,9 +50,15 @@ export default function Home() {
         <label className={styles.input_title}>Confirm Password</label>
         <input className={styles.input} name='confirmPass' type='password' placeholder='********' />
         </div>
+        <Link href="/uploadpage">
         <div>
             <button className={styles.signup_button}>Sign Up</button>
         </div>
+        <Link href="/login"> 
+          <button className={styles.login}>Login</button>
+        </Link>
+        </Link>
+        
       </form>
     </main>
   )

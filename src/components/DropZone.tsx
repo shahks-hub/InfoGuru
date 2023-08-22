@@ -61,7 +61,7 @@ console.log("File ID:", fileId);
           fileId
         }),
       });
-  console.log(response);
+  
       if (response.ok) {
         const responseText = await response.text();
         setApiResponse(responseText);
@@ -88,7 +88,7 @@ console.log("File ID:", fileId);
             content: reader.result,
           }),
         });
-       console.log(response);
+      
         if (response.ok) {
           const responseData  = await response.json();
           
@@ -114,7 +114,9 @@ console.log("File ID:", fileId);
     }
   };
 
- 
+  const handleRefresh = () => {
+    window.location.reload(); // This line triggers the page refresh
+  };
 
   return (
     <div
@@ -150,7 +152,9 @@ console.log("File ID:", fileId);
     />
     <button className={styles.btnsend} onClick={handleSendQuestion} >send question</button>
     {apiResponse && <div className={styles.apiResponse}>{apiResponse}</div>} 
-   
+    <button className={styles.refreshButton} onClick={handleRefresh}>
+      Click here to upload a different file! 
+      </button>
   </div>
  
 )}
@@ -159,8 +163,6 @@ console.log("File ID:", fileId);
     <Link href= "/homepage">
     <button className={styles.logoutbtn}>Logout</button>
     </Link>
- 
-
 
     </div>
    

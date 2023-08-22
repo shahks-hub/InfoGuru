@@ -13,7 +13,7 @@ export default async function handler(
     }
     const { name, email, password, confirmPass } = req.body;
 
-    console.log(req.body);
+    
 
    const user = await prisma.user.findUnique({
     where: {

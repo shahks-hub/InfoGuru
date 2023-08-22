@@ -6,6 +6,7 @@ import React from 'react';
 export default function Home() {
   return (
     <main className={styles.main}>
+      <title>InfoGuru</title>
       <div className={styles.description}>
         <h1 className={styles.title}>InfoGuru</h1>
         <h2 className={styles.subtitle}>Got documents? Got Questions? Let AI handle the rest!</h2>
