@@ -3,6 +3,7 @@ declare module "iron-session" {
       user?: {
         id: number;
         email?: string;
+        name:string;
       };
     }
   }

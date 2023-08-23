@@ -36,9 +36,10 @@ async function handler(
     res.status(400).send("Incorrect password.");
     return;
   }
-req.session.user = {
+(req.session as any).user = {
 name : user.name, 
 id: user.id,
+
 
 }
 
