@@ -13,7 +13,7 @@ async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
-    res.status(404).send("Not Found");
+    res.status(405).send("Method Not Allowed");
     return;
   }
 
