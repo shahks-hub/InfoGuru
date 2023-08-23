@@ -12,10 +12,10 @@ export default function Home() {
         <h2 className={styles.subtitle}>Got documents? Got Questions? Let AI handle the rest!</h2>
         <p className={styles.paragraph}>InfoGuru lets you upload spreadsheets and have it interpret, graph, 
         and explain the data with just one click! Gone are the days of complicated data analysis.
-         Our user-friendly interface ensures that anyone, regardless of their technical expertise, 
+         Our user friendly interface ensures that anyone, regardless of their technical expertise, 
          can effortlessly navigate and visualize complex data sets. No more hours spent deciphering
-         spreadsheets or writing complex code. we've simplified the process so you can focus on what
-          truly matters: making data-driven decisions.
+         spreadsheets or writing complex code. we have simplified the process so you can focus on what
+          truly matters: making data driven decisions.
         </p>
         <Link href = "/signup">
          <button className={styles.btn}>Try it now</button>

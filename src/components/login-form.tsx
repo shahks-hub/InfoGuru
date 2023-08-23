@@ -90,12 +90,12 @@ function App() {
       <h3>We are more than just a company</h3>
       <p className={styles.desc}>
         At InfoGuru, we understand that data is the backbone of modern
-        businesses. That's why we've designed our platform to streamline the
+        businesses. That is why we have designed our platform to streamline the
         entire process, making it easier than ever to extract valuable insights
         from your data. With our secure and reliable technology, you can trust
         that your data is in safe hands. Join the data revolution with InfoGuru
         and unlock the true potential of your data with just a click of a
-        button. Experience the future of data extraction and visualization –
+        button. Experience the future of data extraction and visualization.
         welcome to InfoGuru.
       </p>
     </main>

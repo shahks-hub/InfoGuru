@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { Configuration, OpenAIApi } from "openai";
 
 const config = new Configuration({
-  apiKey: "", //ADD YOUR API KEY HERE
+  apiKey: process.env.OPENAI_API_KEY, 
 });
 
 const openai = new OpenAIApi(config);
