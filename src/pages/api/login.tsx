@@ -4,6 +4,7 @@ import {withIronSessionApiRoute} from "iron-session/next";
 import { cookieInfo } from "@/constants";
 
 
+
 const prisma = new PrismaClient();
 
 export default withIronSessionApiRoute(
@@ -36,9 +37,10 @@ async function handler(
     res.status(400).send("Incorrect password.");
     return;
   }
-(req.session as any).user = {
+req.session.user = {
 name : user.name, 
 id: user.id,
+email: user.email,
 
 
 }

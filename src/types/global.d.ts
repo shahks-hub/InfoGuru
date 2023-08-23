@@ -1,9 +1,11 @@
 declare module "iron-session" {
     interface IronSessionData {
       user?: {
-        id: number;
+        id: string;
         email?: string;
         name:string;
       };
     }
   }
+
+  export default "iron-session";

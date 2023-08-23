@@ -25,7 +25,7 @@ async function handler(
       data: {
         filename,
         content,
-        ownerId: (req.session as any).user.id,
+        ownerId: req.session.user.id,
       },
     });
   
