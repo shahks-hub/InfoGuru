@@ -82,7 +82,7 @@ function App() {
         Forgot password?
       </a>
 
-      <p className={styles.noaccount}>Don't have an account?</p>
+      <p className={styles.noaccount}>Dont have an account?</p>
       <Link href="/signup">
         <button className={styles.signupbtn}>Sign up now!</button>
       </Link>
