@@ -22,12 +22,12 @@ export default async function handler(
    })
 
    if(user){
-    res.status(400).send("User exists.")
+    res.status(400).json({message: "User exists."})
     return
    }
 
    if(password !== confirmPass) {
-    res.status(400).send("Passwords do not match.")
+    res.status(400).json({message: "Passwords do not match."})
     return
    }
 
@@ -39,6 +39,7 @@ export default async function handler(
     }
    })
 
-   res.status(201).send("User created.")
+   res.status(200).json({ message: "User created." });
+
 
   }
