@@ -13,6 +13,7 @@ async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log("login route hit",req.method);
   if (req.method !== "POST") {
     res.status(405).send("Method Not Allowed");
     return;
