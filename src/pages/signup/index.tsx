@@ -87,7 +87,7 @@ export default function Home() {
         />
 
         <button type="submit" className={styles.signup_button}>
-          Sign Up
+          Create Account
         </button>
 
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
