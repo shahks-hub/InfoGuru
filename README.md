@@ -1,45 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+InfoGuru
+InfoGuru is a web application designed to streamline data management and insights. It allows you to efficiently extract valuable information from your data while providing a secure and user-friendly experience.
 
-## Installation
-You must setup postgres to work with this codebase
+Deployment
+InfoGuru is currently deployed on Vercel, making it accessible online. You can visit it at Your Vercel URL Here.
 
-https://www.postgresql.org/download/
+Technologies Used
+Frontend: Built using React and styled with CSS, InfoGuru provides an interactive and responsive user interface.
 
-### Create a database
-Go to your terminal and run these commands. Make sure the password you set is called `secure`
+Backend: Azure Postgres and Prisma are the backbone of this project, handling data storage and management.
 
-```bash
-sudo -u postgres createuser root -P
-sudo -u postgres createdb infoguru
-```
+Getting Started
+Clone this repository to your local machine.
 
-First, run the development server:
+Navigate to the project directory.
 
-```bash
-npm install
+Run npm install to install the necessary dependencies.
 
-npm run dev
-```
+Start the development server using npm run dev.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+What's Next
+Here are some improvements and updates you can look forward to:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Mobile-Friendly UI: Enhance the user experience by making the UI responsive for mobile devices. Experiment with CSS @media styling to ensure it looks great on all screen sizes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Professional Look and Feel: Refine the color scheme and layout to give InfoGuru a more professional appearance.
 
-## Learn More
+Password Reset Functionality: Implement a password reset feature to enhance security and user convenience.
 
-To learn more about Next.js, take a look at the following resources:
+AI Interaction: Enhance the AI interaction to make it more intuitive and user-friendly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Parent-Child Rule Overrides: Learn how to effectively override parent-child CSS rules to have better control over the styling of individual elements.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Feel free to contribute to the project and make it even better!
 
-## Deploy on Vercel
+This README provides a clear overview of your project, its deployment, technologies used, and future improvements. It's essential to keep your README up-to-date as your project evolves.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
