@@ -1,47 +1,111 @@
+
+
+ @keyframes color {
+    0%   { background: #cbb6e7; }
+    20%  { background: #8bc7ff; }
+    40%  { background: #e19ced; }
+    60%  { background: #0093fc; }
+    80%  { background: #d5ceec; }
+    100% { background: #b287d9; }
+  }
+  
 .main{
-  background-image:linear-gradient(rgb(65, 65, 221),white);
   
+  background: #9fd1fa; /* Fallback */
+  animation: color 9s infinite linear;
+  text-align: center;
+  padding: 2em;
   
+}
+
+.loginform{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  max-width: 400px; 
+  margin: 1% auto;
+  border: 1px solid #0a0a0a;
+  border-radius: 10px;
+  background-color: #fff;
+
+
 }
 
 .logoimage {
   width: 500px;
 
 }
-
-.email{
-  font-size: 1.2rem;
-}
-
-.password{
-  font-size: 1.2rem;
-}
-
-.Signinbtn{
+/* Style the labels for the input fields */
+.inputv label {
   font-size: 1rem;
-}
-
-.textmuted{
-  font-size: 1rem;
-  padding-left: 2%;
+   /* Add some space between the label and input */
+  color: #333;
+  margin-bottom: 10px;
+  
   
 }
 
-.noaccount{
-  font-size: 1.2rem;
+/* Style the input fields */
+.inputv input {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #ccc; /* Add a border to the input fields */
+  border-radius: 5px; /* Add rounded corners to the input fields */
+  width: 100%; /* Make the input fields expand to the container's width */
 }
 
-.signupbtn{
+/* Style the Sign In button */
+.Signinbtn {
   font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 15px; /* Add some space below the input fields */
+}
+
+/* Style the Forgot Password link */
+.textmuted {
+  font-size: 1rem;
+  padding-left: 2%;
+  text-align: left; /* Align the link to the left */
+  margin-top: 10px; /* Add some space below the Sign In button */
+}
+
+/* Style the "Don't have an account?" text */
+.noaccount {
+  font-size: 1.2rem;
+  text-align: left; /* Align the text to the left */
+  margin-top: 20px; /* Add some space below the Forgot Password link */
+}
+
+/* Style the Sign Up button */
+.signupbtn {
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-top: 5px; /* Add some space below the "Don't have an account?" text */
 }
 
 .backbtn{
- position: fixed;
- top:20px;
- right:20px;
- font-size: 15px;
- transition-duration: 0.4s;
- background-color: #ef9dd9;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: large;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  color: #FFFFFF;
 }
 
 .backbtn:hover {

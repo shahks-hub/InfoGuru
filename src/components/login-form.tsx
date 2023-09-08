@@ -45,11 +45,12 @@ function App() {
       </Link>
       <h1 className={styles.loginheading}>We are The InfoGuru Team</h1>
 
-      <h3>Please login to your account</h3>
+     
 
       {error && <p className={styles.error}>{error}</p>}
-
-      <div className={styles.email}>
+        <div className={styles.loginform}>
+           <h3>Please login to your account</h3>
+ <div className={styles.inputv}>
         <label htmlFor="email">Email address:</label>
         <input
           type="email"
@@ -61,8 +62,7 @@ function App() {
           required
         />
       </div>
-
-      <div className={styles.password}>
+<div className={styles.inputv}>
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -74,18 +74,21 @@ function App() {
           required
         />
       </div>
-
-      <button className={styles.Signinbtn} onClick={handleLogin}>
+ <button className={styles.Signinbtn} onClick={handleLogin}>
         Sign in
       </button>
       <a className={styles.textmuted} href="#!">
         Forgot password?
       </a>
-
-      <p className={styles.noaccount}>Dont have an account?</p>
+ <p className={styles.noaccount}>Dont have an account?</p>
       <Link href="/signup">
         <button className={styles.signupbtn}>Sign up now!</button>
       </Link>
+
+
+        </div>
+
+     
 
       <h3>We are more than just a company</h3>
       <p className={styles.desc}>
