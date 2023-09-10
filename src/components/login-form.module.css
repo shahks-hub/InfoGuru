@@ -16,6 +16,7 @@
   text-align: center;
   padding: 2em;
   
+  
 }
 
 .loginform{
@@ -37,12 +38,12 @@
   width: 500px;
 
 }
-/* Style the labels for the input fields */
+
 .inputv label {
   font-size: 1rem;
-   /* Add some space between the label and input */
-  color: #333;
-  margin-bottom: 10px;
+  color: #000000;
+  
+  
   
   
 }
@@ -51,9 +52,12 @@
 .inputv input {
   font-size: 1rem;
   padding: 10px;
+
   border: 1px solid #ccc; /* Add a border to the input fields */
   border-radius: 5px; /* Add rounded corners to the input fields */
-  width: 100%; /* Make the input fields expand to the container's width */
+  width: 100%; 
+  /* Make the input fields expand to the container's width */
+  margin-bottom: 10px; 
 }
 
 /* Style the Sign In button */
@@ -114,3 +118,8 @@
   
 }
 
+.error{
+color: red;
+
+
+}

@@ -47,11 +47,16 @@ function App() {
 
      
 
-      {error && <p className={styles.error}>{error}</p>}
+      
         <div className={styles.loginform}>
+          {error && <p className={styles.error}>{error}</p>}
            <h3>Please login to your account</h3>
  <div className={styles.inputv}>
-        <label htmlFor="email">Email address:</label>
+ 
+     <label htmlFor="email">Email address:</label>
+  
+       
+        
         <input
           type="email"
           className="form-control"

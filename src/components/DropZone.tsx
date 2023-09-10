@@ -119,6 +119,10 @@ console.log("File ID:", fileId);
   };
 
   return (
+    <div className={styles.background}>
+    <main className={styles.main}>
+
+   
     <div
       className={`${styles.dropzone} ${
         data.inDropZone ? styles.active : ""
@@ -160,12 +164,12 @@ console.log("File ID:", fileId);
 )}
 
 
-    <Link href= "/homepage">
-    <button className={styles.logoutbtn}>Logout</button>
-    </Link>
+   
 
     </div>
    
+    </main>
+    </div>
   );
 };
 

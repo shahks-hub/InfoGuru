@@ -71,17 +71,21 @@
   
 }
 
- .input_title {
+.input_title {
+  
+ 
   text-align: left;
-  color: rgb(0, 0, 0);
+  color: rgb(8, 8, 8);
   font-size: medium;
   margin-top: -1px;
   position: relative;
   white-space: nowrap;
   width: fit-content;
+  
  
    
 }
+
 .input {
   border-radius: 0px;
   padding: 5px;

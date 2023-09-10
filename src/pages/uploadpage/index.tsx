@@ -2,6 +2,7 @@
 import React, { useReducer } from "react";
 import DropZone from "../../components/DropZone";
 import styles from "./Home.module.css";
+import Link from 'next/link';
 
 interface StateType {
   inDropZone: boolean;
@@ -39,17 +40,21 @@ const UploadPage: React.FC = () => {
   };
 
   return (
-    
-       <div className={styles.container}>
-        <title>DashBoard</title>
+    <div className={styles.pageWrapper}>
       <main className={styles.main}>
-        <h1 className={styles.title}>Drag And Drop File Upload</h1>
-        <DropZone data={data} dispatch={dispatch} onFileUpload={handleFileUpload} />
+        <div className={styles.tot}>
+          <title>DashBoard</title>  
+          <div className={styles.dash}>
+            <h1 className={styles.title}>Drag And Drop File Upload</h1>
+            <DropZone data={data} dispatch={dispatch} onFileUpload={handleFileUpload} />
+          </div>
+        </div>
       </main>
+    
+      <Link href= "/homepage">
+        <button className={styles.logoutbtn}>Logout</button>
+      </Link>
     </div>
-   
-   
   );
 };
-
 export default UploadPage;
