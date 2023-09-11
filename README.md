@@ -36,4 +36,8 @@ Here are some improvements and updates you can look forward to:
 
 5. **Parent-Child Rule Overrides**: Learn how to effectively override parent-child CSS rules to have better control over the styling of individual elements.
 
+6. **Python Data Analysis**: Write python code to perform data analysis and data visualization when possible. 
+
+7. **Multiple file upload**: Implement the ability to upload multiple files and implement correlational analysis. 
+
 Feel free to contribute to the project and make it even better!

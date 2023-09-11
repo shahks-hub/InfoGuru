@@ -85,8 +85,14 @@ z-index: 1;
 
 
 .btnsend{
-  background-color: #bb88dc;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
   cursor: pointer;
+  margin-top: 5px; 
   margin-bottom: 10px;
   
 }
@@ -106,6 +112,17 @@ z-index: 1;
 
 .refreshButton{
  
-  background-color:dodgerblue;
-  color: rgb(252, 252, 252);
+  font-size: 1rem;
+  background-color: #71a9e4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
+  cursor: pointer;
+  margin-top: 5px; 
+  margin-bottom: 10px;
+}
+
+.refreshButton:hover{
+  background-color: #ef9dd9;
 }

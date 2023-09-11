@@ -36,6 +36,7 @@
 
 .logoimage {
   width: 500px;
+  height: 150px;
 
 }
 
@@ -102,7 +103,7 @@
 .backbtn{
   position: absolute;
   top: 20px;
-  right: 10px;
+  right: 20px;
   font-size: large;
   background-color: #007bff;
   border: none;

@@ -1,17 +1,19 @@
 
 .pageWrapper {
-   background-image: url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2187&q=80');
-  min-height: 100vh; /* Ensure the wrapper takes up the full viewport height */
+   background-image: url('https://plus.unsplash.com/premium_photo-1668473367234-fe8a1decd456?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80');
+   min-height: 100vh; /* Ensure the wrapper takes up the full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-size: cover;
-  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  
   background-position: center;
   position: relative;
   
  
 }
+
+
 .tot {
     
   padding: 20px;

@@ -104,7 +104,7 @@ function App() {
         that your data is in safe hands. Join the data revolution with InfoGuru
         and unlock the true potential of your data with just a click of a
         button. Experience the future of data extraction and visualization.
-        welcome to InfoGuru.
+        Welcome to InfoGuru.
       </p>
     </main>
   );

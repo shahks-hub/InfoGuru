@@ -1,7 +1,7 @@
 // DropZone.tsx
 import React, { useState } from "react";
 import styles from "./DropZone.module.css";
-import Link from 'next/link';
+
 
 
 
@@ -20,7 +20,7 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
   const [userQuestion, setUserQuestion] = useState("");
   const [apiResponse, setApiResponse] = useState<string>("");
   const [fileId, setFileId] = useState<string | null>(null);
-
+  const [isLoading, setIsLoading] = useState(false); // Loading state
   
   
   const handleDragEnter = (e: React.DragEvent) => {
@@ -46,6 +46,7 @@ const DropZone: React.FC<DropZoneProps> = ({ data, dispatch, onFileUpload }) => 
   
  
   const handleSendQuestion = async () => {
+    setIsLoading(true); 
     console.log("send button clicked")
     console.log("User Question:", userQuestion);
 console.log("File ID:", fileId);
@@ -66,6 +67,7 @@ console.log("File ID:", fileId);
         const responseText = await response.text();
         setApiResponse(responseText);
       }
+      setIsLoading(false);
     }
   };
   
@@ -81,6 +83,7 @@ console.log("File ID:", fileId);
 
       const reader = new FileReader();
       reader.addEventListener("load", async () => {
+       
         const response = await fetch("/api/upload", {
           method: "POST",
           body: JSON.stringify({
@@ -108,6 +111,7 @@ console.log("File ID:", fileId);
           const progress = (event.loaded / event.total) * 100;
           dispatch({ type: "SET_UPLOAD_PROGRESS", progress });
         }
+      
       });
 
       reader.readAsDataURL(file);
@@ -140,8 +144,12 @@ console.log("File ID:", fileId);
     {data.uploadProgress > 0 && data.uploadProgress < 100 && (
       <div className={styles.uploadProgress} style={{ transform: `rotate(${(data.uploadProgress / 100) * 360}deg)` }} />
     )}
-
-
+   {/* Circular Progress Bar for API response */}
+   {isLoading && (
+            <div className={styles.uploadProgress}>
+            
+            </div>
+          )}
 {data.uploadSuccess && (
   <div className={styles.uploadSuccess}>
     File uploaded successfully: {data.uploadSuccess.filename}

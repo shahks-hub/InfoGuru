@@ -40,6 +40,7 @@ const UploadPage: React.FC = () => {
   };
 
   return (
+   
     <div className={styles.pageWrapper}>
       <main className={styles.main}>
         <div className={styles.tot}>
@@ -55,6 +56,7 @@ const UploadPage: React.FC = () => {
         <button className={styles.logoutbtn}>Logout</button>
       </Link>
     </div>
+  
   );
 };
 export default UploadPage;
