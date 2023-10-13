@@ -28,16 +28,14 @@ Here are some improvements and updates you can look forward to:
 
 1. **Mobile-Friendly UI**: Enhance the user experience by making the UI responsive for mobile devices. Experiment with CSS `@media` styling to ensure it looks great on all screen sizes.
 
-2. **Professional Look and Feel**: Refine the color scheme and layout to give InfoGuru a more professional appearance.
+2. **Password Reset Functionality**: Implement a password reset feature to enhance security and user convenience.
 
-3. **Password Reset Functionality**: Implement a password reset feature to enhance security and user convenience.
+3. **AI Interaction**: Enhance the AI interaction to make it more intuitive and user-friendly.
 
-4. **AI Interaction**: Enhance the AI interaction to make it more intuitive and user-friendly.
+4. **Parent-Child Rule Overrides**: Learn how to effectively override parent-child CSS rules to have better control over the styling of individual elements.
 
-5. **Parent-Child Rule Overrides**: Learn how to effectively override parent-child CSS rules to have better control over the styling of individual elements.
+5. **Python Data Analysis**: Write python code to perform data analysis and data visualization when possible. 
 
-6. **Python Data Analysis**: Write python code to perform data analysis and data visualization when possible. 
-
-7. **Multiple file upload**: Implement the ability to upload multiple files and implement correlational analysis. 
+6. **Multiple file upload**: Implement the ability to upload multiple files and implement correlational analysis. 
 
 Feel free to contribute to the project and make it even better!
