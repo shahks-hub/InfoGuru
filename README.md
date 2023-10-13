@@ -2,6 +2,8 @@
 
 InfoGuru is a web application designed to streamline data management and insights. It allows you to efficiently extract valuable information from your data while providing a secure and user-friendly experience.
 
+
+
 ## Deployment
 
 InfoGuru is currently deployed on Vercel, making it accessible online. You can visit it at https://info-guru.vercel.app/  
@@ -36,6 +38,9 @@ Here are some improvements and updates you can look forward to:
 
 5. **Python Data Analysis**: Write python code to perform data analysis and data visualization when possible. 
 
-6. **Multiple file upload**: Implement the ability to upload multiple files and implement correlational analysis. 
+6. **Multiple file upload**: Implement the ability to upload multiple files and implement correlational analysis.
+
+7. **Better Chat completion prompts**: Change the way the openAI Api responds.
+   
 
 Feel free to contribute to the project and make it even better!
