@@ -2,6 +2,18 @@
 
 InfoGuru is a web application designed to streamline data management and insights. It allows you to efficiently extract valuable information from your data while providing a secure and user-friendly experience.
 
+## Demo
+<img width="1440" alt="Screenshot 2023-10-13 at 12 22 32 PM" src="https://github.com/shahks-hub/InfoGuru/assets/68483510/e03e0812-91dc-45da-a808-fee107e5b3d3">
+
+<img width="1440" alt="Screenshot 2023-10-13 at 12 22 41 PM" src="https://github.com/shahks-hub/InfoGuru/assets/68483510/fa763426-da85-4d99-9076-de24d25afdc0">
+
+<img width="1440" alt="Screenshot 2023-10-13 at 12 22 52 PM" src="https://github.com/shahks-hub/InfoGuru/assets/68483510/0ddb946f-7713-4a76-8ac6-ae7e89ec119a">
+
+<img width="1440" alt="Screenshot 2023-10-13 at 12 23 17 PM" src="https://github.com/shahks-hub/InfoGuru/assets/68483510/656ca8c6-ac3a-47a4-b72e-5e3a30f132a3">
+
+<img width="1440" alt="Screenshot 2023-10-13 at 12 23 39 PM" src="https://github.com/shahks-hub/InfoGuru/assets/68483510/30bc77c3-4918-4545-992e-b04d50fdd954">
+
+<img width="1440" alt="Screenshot 2023-10-13 at 12 23 54 PM" src="https://github.com/shahks-hub/InfoGuru/assets/68483510/34019def-6281-4cfd-ab76-f1174e01c75c">
 
 
 ## Deployment
