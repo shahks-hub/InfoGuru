@@ -29,8 +29,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(404).send("File not found");
     return;
   }
-
-  const fileContent = file.content;
+   // Extract the Base64 data from the content
+   const base64Data = file.content.split("base64,")[1];
+   if (!base64Data) {
+     res.status(400).send("Invalid content format");
+     return;
+   }
+   const decodedContent = Buffer.from(base64Data, 'base64').toString('utf-8');
+  
 
   // Send the file content and the user's question to OpenAI
   const response = await openai.createChatCompletion({
@@ -38,7 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     messages: [
       {
         role: 'system',
-        content: fileContent
+        content: decodedContent
       },
       {
         role: 'user',

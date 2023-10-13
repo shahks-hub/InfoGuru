@@ -20,6 +20,7 @@ async function handler(
 
   const { filename, content } = JSON.parse(req.body);
   console.log(filename);
+  console.log(content)
   try {
     const createdFile = await prisma.file.create({
       data: {
